@@ -1,0 +1,41 @@
+# AI YouTube Shorts Generator - Requirements
+# Install with: pip install -r requirements.txt
+
+# Core HTTP / utilities
+requests>=2.31.0
+python-dotenv>=1.0.0
+pyyaml>=6.0.1
+tqdm>=4.66.0
+
+# Image / video processing
+Pillow>=10.0.0
+numpy>=1.24.0
+opencv-python>=4.8.0.76
+
+# Video editing (moviepy v1.x - stable, compatible with Python 3.10)
+moviepy==1.0.3
+imageio==2.31.1
+imageio-ffmpeg>=0.4.9
+
+# Audio processing
+pydub>=0.25.1
+mutagen>=1.47.0
+
+# Text-to-speech
+edge-tts>=6.1.9
+gTTS>=2.5.0
+
+# Captions / SRT
+srt>=3.5.3
+
+# Web search for fact-checking
+duckduckgo-search>=4.1.1
+
+# Gemini AI (for script segmentation, keyword extraction, fact-checking)
+google-generativeai>=0.7.0
+
+# Audio normalization
+pyloudnorm>=0.1.1
+
+# Subtitle / caption burn-in helper
+ass>=0.5.2

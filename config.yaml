@@ -1,0 +1,66 @@
+# AI Shorts Generator Configuration
+# Edit these settings to customise video output.
+# API keys go in .env, NOT here.
+
+video:
+  width: 1080
+  height: 1920
+  fps: 30
+  format: mp4
+  codec: libx264
+  audio_codec: aac
+  bitrate: "8000k"
+  audio_bitrate: "192k"
+  target_duration_min: 40    # seconds
+  target_duration_max: 65    # seconds
+  transition_duration: 0.4   # seconds between clips
+
+narration:
+  primary_engine: edge_tts           # edge_tts | gtts
+  voice: en-US-AriaNeural            # Edge TTS voice
+  fallback_engine: gtts
+  fallback_lang: en
+  words_per_minute: 150              # Used to estimate script duration
+  silence_between_scenes: 0.3       # seconds of silence between scenes
+
+captions:
+  style: word_highlight              # word_highlight | sentence
+  font: assets/fonts/Montserrat-Bold.ttf
+  font_size: 72
+  highlight_color: "yellow"          # Active word color
+  base_color: "white"                # Inactive word color
+  outline_color: "black"
+  outline_width: 3
+  position: bottom_third             # top | center | bottom_third
+  max_chars_per_line: 25
+
+music:
+  enabled: true
+  source: pixabay                    # pixabay | none
+  volume_during_narration: 0.08      # Duck music under narration (8%)
+  volume_intro_outro: 0.25           # Music volume in intro/outro
+  fade_in: 1.5                       # seconds
+  fade_out: 2.0                      # seconds
+
+assets:
+  prefer_video: true                 # Prefer video clips over images
+  min_clip_duration: 3               # Minimum seconds per clip
+  max_clip_duration: 10              # Maximum seconds per clip
+  fallback_to_generated: true        # Use Pillow-generated visuals as last resort
+  download_dir: temp_assets          # Temp folder (cleaned after render)
+
+output:
+  base_dir: outputs
+  keep_temp_assets: false            # Delete downloaded clips after render
+  generate_preview_gif: false        # GIF preview (slow, set true if wanted)
+
+fact_checking:
+  enabled: true
+  engine: gemini                     # gemini | duckduckgo | none
+  max_claims_to_check: 10
+  flag_unverified: true              # Flag claims that cannot be verified
+
+gemini:
+  model: gemini-1.5-flash            # Fast, generous free quota
+  temperature: 0.3
+  max_output_tokens: 2048
